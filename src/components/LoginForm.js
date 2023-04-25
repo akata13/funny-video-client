@@ -5,14 +5,19 @@ import { TextInput } from 'components/FormControl';
 
 import { validateRequired, validateEmail } from 'helpers/validator';
 
-const LoginForm = ({ form, handleSubmit, submitting, showRegister }) => (
+export const UnconnectedLoginForm = ({
+  form,
+  handleSubmit,
+  submitting,
+  showRegister
+}) => (
   <form className="modal-form" onSubmit={handleSubmit}>
     <Field
       component={TextInput}
       type="text"
       id={`${form}-email`}
       name="email"
-      label="email"
+      label="Email"
       placeholder="Input email"
     />
     <Field
@@ -43,16 +48,16 @@ const LoginForm = ({ form, handleSubmit, submitting, showRegister }) => (
   </form>
 );
 
-LoginForm.propTypes = {
+export const LoginForm = reduxForm({
+  validate: (values) => ({
+    email: validateRequired(values.email) || validateEmail(values.email),
+    password: validateRequired(values.password)
+  })
+})(UnconnectedLoginForm);
+
+UnconnectedLoginForm.propTypes = {
   form: PropTypes.string.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   submitting: PropTypes.bool.isRequired,
   showRegister: PropTypes.func.isRequired
 };
-
-export default reduxForm({
-  validate: (values) => ({
-    email: validateRequired(values.email) || validateEmail(values.email),
-    password: validateRequired(values.password)
-  })
-})(LoginForm);

@@ -5,7 +5,7 @@ import Modal from 'react-modal';
 import { toast } from 'react-toastify';
 import { map } from 'lodash';
 
-import LoginForm from 'components/LoginForm';
+import { LoginForm } from 'components/LoginForm';
 import RegisterForm from 'components/RegisterForm';
 import ShareForm from 'components/ShareForm';
 import Player from './PlayerContainer';
@@ -62,6 +62,7 @@ const Dashboard = ({
 
     if (result) {
       toast.success('Your video has been shared');
+      getVideos();
       setFormRegisterOpen(false);
     }
   };
