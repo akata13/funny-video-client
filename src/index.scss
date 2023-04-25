@@ -1,0 +1,117 @@
+@import './form.scss';
+@import './modal.scss';
+
+html {
+  font-size: 14px;
+}
+
+body {
+  font-size: 1rem;
+  background-color: #ffffff;
+  color: #404040;
+}
+
+@media screen and (max-width: 360px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  .container {
+    max-width: 1200px;
+    width: 100%;
+  }
+  .list-video {
+    max-width: 1000px;
+    width: 100%;
+  }
+}
+
+.modal-tabs {
+  .nav-item {
+    height: 40px;
+    padding: 0.75rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.5;
+    margin-bottom: -1px;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+
+    &.react-tabs__tab--selected {
+      opacity: 1;
+      border-bottom: 3px solid #4272d7;
+    }
+  }
+
+  .react-tabs__tab-panel {
+    display: none;
+
+    &.react-tabs__tab-panel--selected {
+      display: block;
+    }
+  }
+}
+
+.au-btn {
+  font-size: initial;
+}
+
+.btn {
+  font-size: inherit;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.text-ellipsis {
+  // white-space: nowrap;
+  height: 43px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 12;
+  -webkit-box-orient: vertical;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: -0.24px;
+}
+
+.spinner {
+  margin: 0 auto;
+  height: 34px;
+  width: 34px;
+  animation: rotate 0.8s infinite linear;
+  border: 3px solid #1a22b6;
+  border-right-color: transparent;
+  border-radius: 50%;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.player-wrapper {
+  width: auto;
+  height: auto;
+  max-width: 480px;
+}
+.react-player {
+  padding-top: 56.25%;
+  position: relative;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.react-player > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
